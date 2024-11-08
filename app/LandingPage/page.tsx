@@ -7,7 +7,7 @@ import { Input } from "../../components/ui/input"
 import { Textarea } from "../../components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card"
 import { ChevronRight, MapPin, Palette, Mail, Users, Utensils, Facebook, Instagram, Twitter, Car } from 'lucide-react'
-import { TabsDemo } from '@/components/gallery'
+// import { TabsDemo } from '@/components/gallery'
 // import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useRouter } from 'next/navigation'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -191,7 +191,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      <TabsDemo />
+      {/* <TabsDemo /> */}
       {/* <LensDemo /> */}
 
       {/* Testimonials Section */}
