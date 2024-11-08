@@ -1,4 +1,4 @@
-import { TabsDemo } from "@/components/gallery";
+// import { TabsDemo } from "@/components/gallery";
 import LandingPage from "./LandingPage/page";
 import Navbar from "@/components/navbar";
 export default function Home() {
