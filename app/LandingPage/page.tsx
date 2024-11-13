@@ -11,6 +11,10 @@ import { TabsDemo } from '@/components/gallery'
 // import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useRouter } from 'next/navigation'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import ParallaxSection from '@/components/example'
+import ParallaxSection2 from '@/components/example2'
+import LocationSection from '@/components/circle'
+// import ServicesSection from '@/components/services'
 // import { LensDemo } from '../LensDemo/page'
 
 export default function LandingPage() {
@@ -51,56 +55,49 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="font-[Rajdhani] text-black overflow-hidden  overflow-x-hidden">
+    <div className="font-[Rajdhani] text-[#2F3636]">
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center">
         <div 
-          className="absolute inset-0 bg-gradient-to-b from-[#FBF9F6] to-[#F4EDE9]"
+          className="absolute inset-0 bg-gradient-to-b from-[#F4F2EF] to-[#F4EDE9] z-0" 
         />
-        <Image
-          src="/bg3.jpg"
-          alt="Royal Indian Wedding"
-          width={1920}
-          height={1080}
-          className="absolute blur-sm inset-0 w-full h-full object-cover opacity-40"
-          priority
-        />
-        <div className="relative z-10  flex flex-col items-center justify-center text-center px-4">
-          <h1 className="font-[Cinzel] text-6xl md:text-7xl font-bold mb-4 text-black animate-fade-in-up">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/bg3.jpg"
+            alt="Royal Indian Wedding"
+            width={1920}
+            height={1080}
+            className="blur-sm w-full h-full object-cover opacity-40"
+            priority
+          />
+        </div>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="font-[Cinzel] text-7xl md:text-8xl font-bold  text-[#2F3636]animate-fade-in-up">
             Royal Celebrations
             <br />
             <span className="text-3xl md:text-4xl">Where Every Moment is Majestic</span>
           </h1>
-          <p className="font-[Rajdhani] text-xl md:text-xl mb-8 animate-fade-in-up delay-300 text-black">
+          <p className="font-[Rajdhani] text-3xl md:text-3xl mb-8 animate-fade-in-up delay-300 text-[#2F3636]">
             Creating unforgettable events worthy of royalty
           </p>
           <Select onValueChange={handleValueChange}>
-            <SelectTrigger className="w-[200px] bg-black text-white hover:bg-black">
-              <SelectValue placeholder="Begin Your Royal Journey" />
+            <SelectTrigger className="w-[250px] bg-[#2F3636] text-[#F4F2EF] hover:bg-[#AFB4A5] transition-colors duration-300 rounded-full border-2 border-[#AFB4A5] font-[Cinzel] text-lg">
+              <SelectValue placeholder="Begin Your Journey" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="wedding">Wedding</SelectItem>
-              <SelectItem value="birthday">Birthday</SelectItem>
-              <SelectItem value="others">Others</SelectItem>
+            <SelectContent className="bg-[#2F3636] text-[#F4F2EF] border-2 rounded-lg border-[#AFB4A5] font-[Rajdhani]">
+              <SelectItem value="wedding" className="hover:bg-[#AFB4A5] transition-colors  rounded-full duration-300">Wedding</SelectItem>
+              <SelectItem value="birthday" className="hover:bg-[#AFB4A5] transition-colors  rounded-full duration-300">Birthday</SelectItem>
+              <SelectItem value="others" className="hover:bg-[#AFB4A5] transition-colors  rounded-full duration-300">Others</SelectItem>
             </SelectContent>
           </Select>
         </div>
-        {/* <div className="absolute bottom-0 left-0 right-0">
+        <div className="absolute bottom-0 left-100 right-0 z-10">
           <Image
             src="/couples.png"
             alt="Royal Indian Wedding"
             width={500}
             height={500}
-            className=" object-cover"
-          />
-        </div> */}
-        <div className="absolute bottom-0 left-100 right-0">
-          <Image
-            src="/couples.png"
-            alt="Royal Indian Wedding"
-            width={500}
-            height={500}
-            className=" object-cover"
+            className="object-cover"
           />
         </div>
       </section>
@@ -138,6 +135,10 @@ export default function LandingPage() {
           </div>
         </div>
       </section> */}
+      <ParallaxSection />  
+      <ParallaxSection2 />
+      <LocationSection />   
+      {/* <ServicesSection />  */}
 
       {/* Services Section */}
       <section className="py-20 bg-[#FBF9F6]">
