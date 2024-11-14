@@ -1,45 +1,46 @@
-/* eslint-disable react/no-unescaped-entities */
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+"use client"
 
-const LocationSection: React.FC = () => {
-  const { scrollYProgress } = useScroll();
+import React, { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
-  // Transform values for upward clay effect starting from center
-  const height = useTransform(scrollYProgress, [0.3, 1], ["50vh", "100vh"]);
-  const width = useTransform(scrollYProgress, [0.3, 1], ["100%", "100vw"]);
-  const yPosition = useTransform(scrollYProgress, [0.3, 0.7], ["*50%", "30%"]);
-  const borderTopRadius = useTransform(scrollYProgress, [0.3, 0.7], ["50%", "50%"]);
-  const scaleY = useTransform(scrollYProgress, [0.3, 0.7], [1, 1.5]);
-  const opacity = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [1, 0.95, 0.9]);
+export default function Circle() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+  const { scrollXProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
+  const curvePosition = useTransform(scrollYProgress, [0, 0.8, 1], ["0%", "80%", "100%"]) // Changed initial position to 0%
+  const curvePositionX = useTransform(scrollXProgress, [0, 0.5, 1], ["0%", "50%", "100%"]) // Changed initial position to 0%
+  // const textOpacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1])
+  // const textPosition = useTransform(scrollYProgress, [0.3, 0.7], ["50%", "100%"])
+
+  // const textPositionX = useTransform(scrollXProgress, [0.3, 0.7], ["60%", "50%"])
 
   return (
-    <div className="relative h-[200vh] bg-[#f9f7f2] overflow-hidden">
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* The half-circle clay that gets pushed up from center */}
-        <motion.div
-          className="absolute bg-[#2F3636]"
+    <div ref={containerRef} className="relative min-h-[50vh] bg-[rgb(47,54,54)] text-white overflow-hidden">
+      <div className="sticky top-0 h-[50vh] flex flex-col justify-center overflow-hidden">
+        <motion.div 
+          className="absolute inset-0 bg-[#afb4a5]"
           style={{
-            width,
-            height,
-            top: "0%", // Start from center
-            left: 0,
-            scaleY,
-            opacity,
-            borderTopLeftRadius: borderTopRadius,
-            borderTopRightRadius: borderTopRadius,
-            transformOrigin: "bottom", // Change origin to bottom for upward movement
-            transform: `translateY(${yPosition})`
+            top: curvePosition,
+            left: curvePositionX,
+            borderRadius: "80% 80% 0 0"
           }}
-        />
-        
-        <div className="relative z-10 text-center text-white h-screen flex flex-col items-center justify-center">
-          <h2 className="text-4xl font-bold mb-4">Our Location</h2>
-          <p className="text-xl">Find us in the heart of Thessaloniki</p>
-        </div>
+        >
+          {/* <div 
+            className="h-[50vh] flex items-center justify-center"
+          >
+            <h2 className="text-gray-900 text-4xl font-bold text-center">
+              PLANETARIUM
+            </h2>
+          </div> */}
+        </motion.div>
       </div>
     </div>
-  );
-};
-
-export default LocationSection;
+  )
+}

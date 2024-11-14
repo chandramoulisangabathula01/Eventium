@@ -1,0 +1,41 @@
+@media (min-width: 992px) and (max-width: 1919px) {
+    .circle__wrapper {
+        padding-block: 200px;
+    }
+}
+
+.circle__wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+*, :after, :before, body {
+    margin: 0;
+    padding: 0;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+.circle__wrapper.dark-bottom:after, .circle__wrapper.dark-top:before {
+    background-color: var(--clr-bg-secondary);
+}
+
+.circle__wrapper.light-bottom:after, .circle__wrapper.light-top:before {
+    background-color: var(--clr-bg-primary);
+}
+
+.circle__wrapper.dark-bottom:after, .circle__wrapper.dark-top:before {
+    background-color: var(--clr-bg-secondary);
+}
+.circle__wrapper:before {
+    top: -5%;
+}
+.circle__wrapper:after, .circle__wrapper:before {
+    content: "";
+    height: 55%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -5;
+}

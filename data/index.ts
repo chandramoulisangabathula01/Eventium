@@ -7,17 +7,17 @@ export const tabs = [
     {
       title: "Videography",
       value: "services",
-      image: "/wedding/phooto.png",
+      image: "/wedding/3.png",
     },
     {
       title: "Wedding Planning",
       value: "enterprise",
-      image: "/wedding/phooto.png",
+      image: "/wedding/4.png",
     },
     {
       title: "Wedding Ceremony",
       value: "mailing",
-        image: "/wedding/phooto.png",
+        image: "/wedding/5.png",
     },
   ];
   

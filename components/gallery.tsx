@@ -8,11 +8,11 @@ import { tabs } from "@/data/index";
 
 export function TabsDemo() {
   return (
-    <div className="h-[20rem] sm:h-[30rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-10 sm:my-16 md:my-20">
+    <div className="h-[20rem] bg-[#f4f2ef] text-xl sm:h-[30rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-10 sm:my-16 md:my-20">
       <Tabs tabs={tabs.map(tab => ({
         ...tab,
         content: (
-          <div className="w-full overflow-hidden relative h-full rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-10 text-base sm:text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-purple-700 to-violet-900">
+          <div className="w-full overflow-hidden relative h-full rounded-lg sm:rounded-xl md:rounded-2xl p-2 sm:p-6 md:p-10 text-lg sm:text-xl md:text-4xl font-bold text-[#2F3636] ">
             <Image
               src={tab.image}
               alt={tab.title}

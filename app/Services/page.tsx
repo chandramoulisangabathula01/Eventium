@@ -1,10 +1,11 @@
-
 /* eslint-disable @next/next/no-img-element */
 "use client"
 import { motion, useScroll, useTransform, useInView, easeOut } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 // import Image from 'next/image';
 import { MapPin, Palette, Mail, Users, Utensils, Car } from 'lucide-react';
+import Lenis from '@studio-freight/lenis'
+import Navbar from '@/components/navbar';
 
 const ServicesSection: React.FC = () => {
   const containerRef = useRef(null);
@@ -180,10 +181,28 @@ const services = [
     { icon: Car, images: '/wedding/parking.png', title: 'Parking', description: 'We provide ample parking for your guests, ensuring a smooth arrival and departure.' },
   ]
 
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    })
 
+    function raf(time: number) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy()
+    }
+  }, [])
 
   return (
+    
     <div ref={containerRef} className="relative h-[100%] bg-[#2F3636] overflow-hidden">
+      <Navbar />
 
         <div className='flex flex-col justify-center mt-20 mb-20 h-[50vh] items-center'>
           <h1 className='text-8xl flex font-semibold text-[#AFB4A5]'> Our </h1>

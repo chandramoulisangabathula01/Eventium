@@ -42,7 +42,7 @@ const ParallaxSection: React.FC = () => {
               variants={textRevealVariants}
               custom={0}
             >
-              Creating magical moments in a unique location in Thessaloniki!
+              Creating magical weddings and events 
             </motion.h2>
             <motion.p 
               className="text-gray-600 text-lg"
@@ -50,7 +50,7 @@ const ParallaxSection: React.FC = () => {
               variants={textRevealVariants}
               custom={1}
             >
-              It provides the ideal environment for hosting your most special events. The elegant and functional design, combined with the surrounding glass walls offering stunning views, creates an enchanting space for wedding receptions, professional events, baptisms, and other significant moments of your life.
+              Experience the perfect blend of modern luxury and timeless elegance in our versatile venue. With state-of-the-art facilities and breathtaking architectural design, we create unforgettable moments for weddings, corporate gatherings, and celebratory events. Our space adapts seamlessly to your vision, ensuring every occasion is uniquely memorable.
             </motion.p>
             <motion.button 
               className="bg-gray-700 text-white px-8 py-3 rounded-full mt-4 hover:bg-gray-600 transition-colors w-fit"
